@@ -16,6 +16,14 @@ const saludar2 = function(nombre)
  * Una funcion flecha no lo necesita.
  */
 
+
+
 const saludar3 = (nombre)=>{
-    
+    console.log(`Hola como estas, ${nombre}`);
 }
+
+function llamarFuncionParaSaludar(fn, parametro){
+    fn(parametro);
+}
+
+llamarFuncionParaSaludar(saludar2, "Roberth");
