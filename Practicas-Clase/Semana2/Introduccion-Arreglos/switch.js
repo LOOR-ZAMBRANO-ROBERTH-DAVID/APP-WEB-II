@@ -2,29 +2,36 @@
 //Nota: Evitar usar var
 
 
+
 function operacion(n1, n2, operacion){
+
 
 switch(operacion)
 {
+
+/**Lo ideal no es mostrar los datos por console.log sino mas bien
+ * retornar el valor
+ */
     case "sumar":
-        console.log(n1+n2);
+        return n1+n2;
         break;
     case "restar":
-        console.log(n1-n2);
+        return n1-n2;
         break;
     case "multiplicar":
-        console.log(n1*n2);
+        return n1*n2;
         break;
     case "dividir":
-        console.log(n1/n2);
+        return n1/n2;
         break;
     default:
-        console.log(`La operacion ${operacion} no se encuentra definida`)
+        return 0;
    }
 }
 
 function saludar(nombre){
-    console.log(`Hola buenos dias ${nombre}`);
+/**Concatenar puede generar problemas en la cuercion de datos */
+    return `Hola buenos dias ${nombre}`;
 
 }
 
@@ -33,7 +40,11 @@ function saludar(nombre){
 //Exportar funciones
 //module.exports=operacion;
 /*Desestructuracion*/
+
+/**
+ * No se agrega un alias, mas bien se crea como objeto
+ */
 module.exports={
-    operacion,
-    saludar
+    funcione1: operacion,
+    funcion2: saludar
 } 
