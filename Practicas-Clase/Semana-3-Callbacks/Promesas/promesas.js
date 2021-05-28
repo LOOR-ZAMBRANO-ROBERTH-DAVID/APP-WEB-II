@@ -48,14 +48,36 @@ function buscarLibroPorId(id){
 }
 
 function buscarAutorPorId(id){
-    return Promise((resolve, reject)=>{
-        const autor = autores.find((autor)=>autor.id===id);
-        if (!autor){
-            const error=new Error();            
+    return new Promise((resolve, reject)=>{
+        const autor=autores.find((autor)=>autor.id===id) 
+        if(!autor){
+            const error = new Error();
             error.message="Autor no encontrado";
             reject(error);
         }
         resolve(autor);
+    
     })
-
+    
 }
+
+let libroAuxiliar={};
+
+buscarLibroPorId(22).then((libro)=>{
+    libroAuxiliar=libro;
+    return buscarAutorPorId(libro.idautor);
+}).then((autor)=>{
+    libroAuxiliar.autor=autor;
+    delete libroAuxiliar.idautor;
+    console.log(libroAuxiliar);
+}).catch((error)=>{
+    console.log(error.message)
+})
+
+
+
+
+
+
+
+
