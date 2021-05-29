@@ -31,7 +31,7 @@ const autores =[
     }
 ]
 
-
+// 
 
 async function buscarLibroPorId(id){
     const libro = libros.find((libro)=>libro.id===id);
