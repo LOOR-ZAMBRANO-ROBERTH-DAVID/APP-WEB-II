@@ -85,6 +85,45 @@ function buscarClientePorId(id){
 }
 
 
+//Se realizara una consulta respecto al pedido y el pack de bocadito
+//con el uso de asyncawait para mostrar su funcionamiento
+
+
+async function buscarPedidoPorId2(id){
+    const pedido = pedidos.find((pedido)=>pedido.id===id);
+    if(!pedido){
+        const error=new Error();
+        error.message="El pedido no se encontro";
+        throw error;
+
+    }
+    return pedido;
+
+}
+async function buscarBocaditoPorId(id){
+    const bocadito = bocaditos.find((bocadito)=>bocadito.id===id);
+    if(!bocadito){
+        const error=new Error();
+        error.message="Pack de bocadito no encontrado";
+        throw error;
+
+    }
+    return bocadito;
+}
+
+async function main(){
+    try{
+        const pedido = await buscarPedidoPorId2('pp1');
+        const bocadito = await buscarBocaditoPorId(pedido.idbocadito);
+        console.log(`El pack seleccionado es: ${bocadito.nombre}, el contenido de este pack es: ${bocadito.description}.
+        Este pedido se realizo el ${pedido.fecha}`);
+
+    }catch(err){
+        console.log(err.message);
+    }
+}
+
+main();
 
 
 
@@ -94,6 +133,7 @@ function buscarClientePorId(id){
 
 
 let pedidoAuxiliar={};
+
 
 buscarPedidoPorId('pp1').then((pedido)=>{
     pedidoAuxiliar=pedido;
@@ -107,4 +147,7 @@ buscarPedidoPorId('pp1').then((pedido)=>{
 }).catch((error)=>{
     console.log(error.message)
 })
+
+
+
 
