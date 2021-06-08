@@ -115,8 +115,7 @@ async function main(){
     try{
         const pedido = await buscarPedidoPorId2('pp1');
         const bocadito = await buscarBocaditoPorId(pedido.idbocadito);
-        console.log(`El pack seleccionado es: ${bocadito.nombre}, el contenido de este pack es: ${bocadito.description}.
-        Este pedido se realizo el ${pedido.fecha}`);
+        console.log(`El pack seleccionado es: ${bocadito.nombre}, el contenido de este pack es: ${bocadito.description}`);
 
     }catch(err){
         console.log(err.message);
@@ -124,11 +123,6 @@ async function main(){
 }
 
 main();
-
-
-
-
-
 
 
 
@@ -147,7 +141,3 @@ buscarPedidoPorId('pp1').then((pedido)=>{
 }).catch((error)=>{
     console.log(error.message)
 })
-
-
-
-

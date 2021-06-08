@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const conexion = "mongodb+srv://dbUser:mylove1999@cluster0.c1tlj.mongodb.net/webii?retryWrites=true&w=majority";
+const conexion = 'mongodb+srv://dbUser:mylove1999@cluster0.c1tlj.mongodb.net/webii?retryWrites=true&w=majority';
 
 
 
