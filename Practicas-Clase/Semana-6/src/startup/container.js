@@ -1,35 +1,43 @@
-const { createContainer, asClass, asValue, asFunction } = require ('awilix');
-
-//Importar servicios
-//Hacemos una desetructuracion
-
-const{HomeService} = require("../services")
-//Importar controladores
-const {HomeController} = require("../controllers")
-
-//Importar las rutas
-const {HomeRoutes} = require("../routes/index.routes")
+const { createContainer, asClass, asValue, asFunction } = require('awilix');
 
 
-const container = createContainer();
+const config = require("../config");
 
+//Importamos los servicios
+const { HomeService } = require("../services");
+//importar controladores
+const { HomeController } =  require("../controllers")
 
+//importar rutas
+const { HomeRoutes  } = require("../routes/index.routes")
+const Routes = require("../routes");
 
+const app = require('.');
 
-container.register
+const container =  createContainer();
 
-
-
-module.exports=container({
-    HomeService: asClass(HomeService).singleton()
-})
-
+container
 .register(
     {
-        HomeController: asClass(HomeController.bind(HomeController)).singleton()
+        app: asClass(app).singleton(),
+        router:asFunction(Routes).singleton(),
+        config: asValue(config)
     }
 )
-
-.register({
+.register(
+    {
+        HomeService: asClass(HomeService).singleton()
+    }
+)
+.register(
+    {
+        HomeController: asClass(HomeController.bind(HomeController) ).singleton()
+    }
+).register({
     HomeRoutes: asFunction(HomeRoutes).singleton()
 })
+
+
+
+
+module.exports = container;

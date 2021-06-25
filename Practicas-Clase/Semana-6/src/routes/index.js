@@ -26,6 +26,10 @@ module.exports = function(HomeRoutes){
     apiRoutes.use('/home', HomeRoutes);
 
     router.use("/v1/api", apiRoutes);
+
+    /*Estons son los middlewares logicos* */
+    router.use(NoFoundMiddleware);
+    router.use(ErrorMiddleware);
     return router;
 
     //localhost:5000/vi/api/home/mostrarMensaje
