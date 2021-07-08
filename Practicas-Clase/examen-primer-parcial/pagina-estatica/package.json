@@ -1,22 +1,26 @@
 {
-  "name": "semana-5-express",
+  "name": "pagina-estatica",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "devstart": "nodemon index.js",
+    "devstart": "nodemon index2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.10"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "request": "^2.88.2"
+    "mongoose": "^5.13.2",
+    "node-cron": "^3.0.0",
+    "path": "^0.12.7"
   }
 }
