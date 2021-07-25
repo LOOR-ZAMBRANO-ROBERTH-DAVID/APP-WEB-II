@@ -1,18 +1,19 @@
+let _homeService= null;
 
 
-
-
-let _homeService=null;
-
-class HomeController{
-    //Recibimos los services
-    constructor({HomeService}){
+class HomeController
+{
+    constructor({HomeService})
+    {
         _homeService = HomeService;
 
     }
-    index(req, res){
+    index(req, res)
+    {
         return res.send(_homeService.index())
 
     }
+
 }
-module.exports=HomeController;
+
+module.exports = HomeController;
