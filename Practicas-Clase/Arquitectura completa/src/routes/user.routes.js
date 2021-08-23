@@ -8,5 +8,5 @@ module.exports = function({UserController}){
     router.post('/', UserController.create);
     router.patch('/:userId', UserController.update);
     router.delete('/:userId', UserController.delete);
-    router.delete
+    return router;
 }
