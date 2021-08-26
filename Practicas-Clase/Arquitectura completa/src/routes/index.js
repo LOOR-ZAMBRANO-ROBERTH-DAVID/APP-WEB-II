@@ -26,6 +26,7 @@ module.exports = function(HomeRoutes){
     apiRoutes.use('/home', HomeRoutes);
 
     router.use("/v1/api", apiRoutes);
+    router.use("/public", express.static('public'));
 
     /*Estons son los middlewares logicos* */
     router.use(NoFoundMiddleware);
