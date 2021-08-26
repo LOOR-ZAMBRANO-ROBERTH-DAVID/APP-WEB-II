@@ -1,0 +1,20 @@
+<div class="container">
+    <br>
+    <form action="/usuarioForm/usuario/operar" method="POST">
+        <input type="hidden" name="_id" value="{{usuario._id}}">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{usuario.name}}">
+        </div>
+        <div class="form-group">
+            <label for="username">Usuario</label>
+            <input type="text" class="form-control" id="username" name="username" value="{{usuario.username}}">
+        </div>
+        <div class="form-group">
+            <label for="password">Contrasena</label>
+            <input type="text" class="form-control" id="password" name="password" value="{{usuario.password}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
+        <a href="/" class="btn btn-danger">Cancelar</a>
+    </form>
+</div> 

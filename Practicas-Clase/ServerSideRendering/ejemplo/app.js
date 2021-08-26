@@ -6,12 +6,15 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var usuarioForm = require('./routes/usuarioForm');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use('/usuarioForm', usuarioForm);
 
 app.use(logger('dev'));
 app.use(express.json());
