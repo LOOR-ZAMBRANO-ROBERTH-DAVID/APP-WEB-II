@@ -27,5 +27,4 @@ app.get("/api/v1/cars", (req,res)=>{
     return res.send(response);
 })
 
-
 module.exports = app; 
