@@ -24,6 +24,42 @@ window.addEventListener('load', function(){
         txtpassword.value='';
     })
     btngrabar.addEventListener('click',function(){
+        let url=`http://localhost:5000/v1/api/user`;
+        let data ={
+            name:txtname.value,
+            username: txtusername.value,
+            password: txtpassword.value
+        };
+
+        fetch(url, {
+            method:'POST',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(
+            res => res.json()
+        ).then(res2 => console.log( res2 ))
+        .catch(error=> console.log('Error', error));
+    })
+    btnmodificar.addEventListener('click',function(){
+        let url=`http://localhost:5000/v1/api/user/${txtid.value}`;
+        let data ={
+            name:txtname.value,
+            username: txtusername.value,
+            password: txtpassword.value
+        };
+
+        fetch(url, {
+            method:'PATCH',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(
+            res => res.json()
+        ).then(res2 => console.log( res2 ))
+        .catch(error=> console.log('Error', error));
 
     })
     btnconsultar.addEventListener('click',function(){
@@ -47,7 +83,13 @@ window.addEventListener('load', function(){
 
     })
     btneliminar.addEventListener('click',function(){
-
+        let url=`http://localhost:5000/v1/api/user/${txtid.value}`;
+        fetch(url,{
+            method:'DELETE'
+        })
+        .then(res => res.json())
+        .then(res2=> console.log(res2))
+        .catch(error=> console.error('Error', error))
     })
 
 
