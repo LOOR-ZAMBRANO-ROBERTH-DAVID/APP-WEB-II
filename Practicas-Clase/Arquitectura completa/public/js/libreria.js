@@ -17,4 +17,38 @@ window.addEventListener('load', function(){
 
     htmlCuerpo.innerHTML= htmlGenerado;
 
+    btnnuevo.addEventListener('click',function(){
+        txtid.value='';
+        txtname.value='';
+        txtusername.value='';
+        txtpassword.value='';
+    })
+    btngrabar.addEventListener('click',function(){
+
+    })
+    btnconsultar.addEventListener('click',function(){
+        fetch(`http://localhost:5000/v1/api/user`).then(resultado=>{
+            return resultado.json()
+        }).then(consulta=>{
+            let tabla = `<table border=1>`;
+            for (const elemento in consulta)
+            {
+                tabla+=`<tr>`; //filas
+                    const actual = consulta[elemento];
+                    tabla+=`<td> ${actual.name} </td>`
+                    tabla+=`<td> ${actual.password} </td>`
+                    tabla+=`<td> <button value='${actual._id}'>${actual.username}</button>  </td>`
+                tabla+=`</tr>`;
+            }
+            tabla+= `</table>`;
+            divcontenido.innerHTML = tabla;
+
+        })
+
+    })
+    btneliminar.addEventListener('click',function(){
+
+    })
+
+
 }) 
